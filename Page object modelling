@@ -1,0 +1,23 @@
+import login from "../pageobjects/POMFROM1"
+describe('POM',()=>
+{it('logintest_using POM',()=>
+{
+cy.visit("https://register.rediff.com/register/register.php?FormName=user_details")
+     {
+    const ln = new login();
+    ln.setFullName('kee')
+    ln.setEmailid('mr.mrng3214')
+    ln.clickAvailability()
+    ln.verifyEmailid()
+    ln.setPassWord('Easakeer@123')
+    ln.setPassWord1('Easakeer@123')
+    ln.setAlternateEmail('keer255@gmail.com')
+    ln.setMobilenumber('9876543012')
+    ln.setGender()
+    ln.setCity("Cuttack")
+    ln.SetEnterthetext()
+    ln.setclick()
+    ln.setcheckloggedin()
+}
+})
+} )
