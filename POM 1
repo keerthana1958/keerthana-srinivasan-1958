@@ -1,0 +1,27 @@
+import login from "../pageobjects/pomlogintest"
+
+
+describe('POM',()=>
+{
+
+   /*dirct method
+   
+   it ('logintest', ()=>{
+        cy.visit('https://opensource-demo.orangehrmlive.com/')
+        cy.get("input[placeholder='Username']").type("Admin")
+        cy.get("input[placeholder='Password']").type("admin123")
+        cy.get("button[type='submit']").click()
+        cy.get(".oxd-text.oxd-text--h6.oxd-topbar-header-breadcrumb-module").should('have.text',"Dashboard")*/
+
+it('logintest_using POM with fixture',()=>
+{
+
+    cy.visit('https://opensource-demo.orangehrmlive.com/')
+    cy.fixture('orgpom').then((abc)=>
+    {
+    const ln = new login();
+    ln.setUserName(abc.Username)
+    ln.setPassword(abc.Password)
+    ln.clickSubmit()
+    ln.verifyLogin()
+    })
